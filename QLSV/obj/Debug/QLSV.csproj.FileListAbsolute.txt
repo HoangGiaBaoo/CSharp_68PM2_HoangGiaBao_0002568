@@ -8,3 +8,17 @@ C:\Users\ADMIN\source\repos\WFA\QLSV\obj\Debug\QLSV.csproj.GenerateResource.cach
 C:\Users\ADMIN\source\repos\WFA\QLSV\obj\Debug\QLSV.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\WFA\QLSV\obj\Debug\QLSV.exe
 C:\Users\ADMIN\source\repos\WFA\QLSV\obj\Debug\QLSV.pdb
+C:\Users\ADMIN\source\repos\WFA\QLSV\obj\Debug\QLSV.QLLH.resources
+C:\Users\ADMIN\source\repos\WFA\QLSV\obj\Debug\QLSV.QLSV.resources
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\bin\Debug\QLSV.exe.config
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\bin\Debug\QLSV.exe
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\bin\Debug\QLSV.pdb
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.csproj.AssemblyReference.cache
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.Form1.resources
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.QLLH.resources
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.QLSV.resources
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.csproj.GenerateResource.cache
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.exe
+C:\Users\ADMIN\OneDrive - HUCE\Pictures\Documents\GitHub\CSharp_68PM2_HoangGiaBao_0002568\QLSV\obj\Debug\QLSV.pdb
