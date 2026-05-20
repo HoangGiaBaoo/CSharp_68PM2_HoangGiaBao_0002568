@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QLSV
 {
-    public partial class QLSV : Form
+    public partial class UC_QLSV : UserControl
     {
-        public QLSV()
+        public UC_QLSV()
         {
             InitializeComponent();
-        }
-
-        private void txt_tenLop_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -33,6 +28,11 @@ namespace QLSV
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
