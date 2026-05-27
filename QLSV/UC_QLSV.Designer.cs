@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Malop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tenlop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_DSSV = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.txt_timKiem = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,17 +46,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ngaySinh = new System.Windows.Forms.DateTimePicker();
+            this.cbo_lop = new System.Windows.Forms.ComboBox();
+            this.cbo_gioiTinh = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_maLop = new System.Windows.Forms.TextBox();
+            this.txt_hoTen = new System.Windows.Forms.TextBox();
             this.txt_maID = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DSSV)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,58 +69,16 @@
             this.label8.TabIndex = 55;
             this.label8.Text = "2 bản ghi";
             // 
-            // dataGridView1
+            // dgv_DSSV
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaID,
-            this.Malop,
-            this.Tenlop,
-            this.Ghichu,
-            this.lop});
-            this.dataGridView1.Location = new System.Drawing.Point(422, 111);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(747, 542);
-            this.dataGridView1.TabIndex = 48;
-            // 
-            // MaID
-            // 
-            this.MaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaID.HeaderText = "Mã SV";
-            this.MaID.MinimumWidth = 8;
-            this.MaID.Name = "MaID";
-            this.MaID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Malop
-            // 
-            this.Malop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Malop.HeaderText = "Họ và Tên";
-            this.Malop.MinimumWidth = 8;
-            this.Malop.Name = "Malop";
-            // 
-            // Tenlop
-            // 
-            this.Tenlop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Tenlop.HeaderText = "Giới tính";
-            this.Tenlop.MinimumWidth = 8;
-            this.Tenlop.Name = "Tenlop";
-            // 
-            // Ghichu
-            // 
-            this.Ghichu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ghichu.HeaderText = "Ngày sinh";
-            this.Ghichu.MinimumWidth = 8;
-            this.Ghichu.Name = "Ghichu";
-            // 
-            // lop
-            // 
-            this.lop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.lop.HeaderText = "Lớp";
-            this.lop.MinimumWidth = 8;
-            this.lop.Name = "lop";
+            this.dgv_DSSV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv_DSSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DSSV.Location = new System.Drawing.Point(422, 111);
+            this.dgv_DSSV.Name = "dgv_DSSV";
+            this.dgv_DSSV.RowHeadersWidth = 62;
+            this.dgv_DSSV.RowTemplate.Height = 28;
+            this.dgv_DSSV.Size = new System.Drawing.Size(747, 542);
+            this.dgv_DSSV.TabIndex = 48;
             // 
             // button6
             // 
@@ -279,19 +232,20 @@
             this.button1.TabIndex = 40;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.ngaySinh);
+            this.panel1.Controls.Add(this.cbo_lop);
+            this.panel1.Controls.Add(this.cbo_gioiTinh);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txt_maLop);
+            this.panel1.Controls.Add(this.txt_hoTen);
             this.panel1.Controls.Add(this.txt_maID);
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(20, 36);
@@ -299,36 +253,33 @@
             this.panel1.Size = new System.Drawing.Size(374, 451);
             this.panel1.TabIndex = 39;
             // 
-            // dateTimePicker1
+            // ngaySinh
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(34, 207);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(296, 26);
-            this.dateTimePicker1.TabIndex = 12;
+            this.ngaySinh.CustomFormat = "dd/MM/yyyy";
+            this.ngaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ngaySinh.Location = new System.Drawing.Point(34, 207);
+            this.ngaySinh.Name = "ngaySinh";
+            this.ngaySinh.Size = new System.Drawing.Size(296, 26);
+            this.ngaySinh.TabIndex = 12;
             // 
-            // comboBox2
+            // cbo_lop
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "68PM1",
-            "68PM2"});
-            this.comboBox2.Location = new System.Drawing.Point(34, 361);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(296, 28);
-            this.comboBox2.TabIndex = 11;
+            this.cbo_lop.FormattingEnabled = true;
+            this.cbo_lop.Location = new System.Drawing.Point(34, 361);
+            this.cbo_lop.Name = "cbo_lop";
+            this.cbo_lop.Size = new System.Drawing.Size(296, 28);
+            this.cbo_lop.TabIndex = 11;
             // 
-            // comboBox1
+            // cbo_gioiTinh
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbo_gioiTinh.FormattingEnabled = true;
+            this.cbo_gioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.comboBox1.Location = new System.Drawing.Point(34, 283);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(296, 28);
-            this.comboBox1.TabIndex = 10;
+            this.cbo_gioiTinh.Location = new System.Drawing.Point(34, 283);
+            this.cbo_gioiTinh.Name = "cbo_gioiTinh";
+            this.cbo_gioiTinh.Size = new System.Drawing.Size(296, 28);
+            this.cbo_gioiTinh.TabIndex = 10;
             // 
             // label10
             // 
@@ -375,12 +326,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Mã sinh viên:";
             // 
-            // txt_maLop
+            // txt_hoTen
             // 
-            this.txt_maLop.Location = new System.Drawing.Point(34, 128);
-            this.txt_maLop.Name = "txt_maLop";
-            this.txt_maLop.Size = new System.Drawing.Size(296, 26);
-            this.txt_maLop.TabIndex = 1;
+            this.txt_hoTen.Location = new System.Drawing.Point(34, 128);
+            this.txt_hoTen.Name = "txt_hoTen";
+            this.txt_hoTen.Size = new System.Drawing.Size(296, 26);
+            this.txt_hoTen.TabIndex = 1;
             // 
             // txt_maID
             // 
@@ -395,7 +346,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_DSSV);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.txt_timKiem);
             this.Controls.Add(this.label6);
@@ -414,7 +365,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "UC_QLSV";
             this.Size = new System.Drawing.Size(1192, 791);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.UC_QLSV_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DSSV)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -425,12 +377,7 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Malop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tenlop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lop;
+        private System.Windows.Forms.DataGridView dgv_DSSV;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txt_timKiem;
         private System.Windows.Forms.Label label6;
@@ -447,15 +394,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker ngaySinh;
+        private System.Windows.Forms.ComboBox cbo_lop;
+        private System.Windows.Forms.ComboBox cbo_gioiTinh;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_maLop;
+        private System.Windows.Forms.TextBox txt_hoTen;
         private System.Windows.Forms.TextBox txt_maID;
     }
 }
