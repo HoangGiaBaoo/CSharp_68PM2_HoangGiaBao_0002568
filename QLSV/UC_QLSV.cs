@@ -13,6 +13,7 @@ namespace QLSV
     public partial class UC_QLSV : UserControl
     {
         databaseDataContext db = new databaseDataContext("Data Source=DESKTOP-RDPV4HN\\GBAO;Initial Catalog=quanlysv;User ID=sa;Password=Giabao2005@;TrustServerCertificate=True");
+        string _selectedMaSV;
         public UC_QLSV()
         {
             InitializeComponent();
@@ -80,6 +81,35 @@ namespace QLSV
             cbo_lop.DataSource = dSLH;
             cbo_lop.DisplayMember = "tenlop";
             cbo_lop.ValueMember = "malop";
+        }
+
+        private void dgv_DSSV_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgv_DSSV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == 0) {
+                return;
+            }
+            var row = dgv_DSSV.Rows[e.RowIndex];
+
+            _selectedMaSV = row.Cells["id"].Value.ToString();
+            txt_maID.Text = _selectedMaSV;
+            txt_hoTen.Text = row.Cells["hoten"].Value.ToString();
+            cbo_gioiTinh.Text = row.Cells["gioitinh"].Value.ToString();
+
+            txt_maID.Enabled = false;
+
+            string malop = row.Cells["malop"].Value?.ToString().Trim();
+            if (!string.IsNullOrEmpty(malop))
+                cbo_lop.SelectedValue = malop;
+            else if (cbo_lop.Items.Count > 0)
+                cbo_lop.SelectedIndex = 0;
+
+            if (row.Cells["ngaysinh"].Value is DateTime dt)
+                ngaySinh.Value = dt;
         }
     }
 }
