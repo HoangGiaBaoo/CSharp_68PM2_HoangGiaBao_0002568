@@ -204,6 +204,7 @@
             this.button4.TabIndex = 43;
             this.button4.Text = "Làm mới";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -226,6 +227,7 @@
             this.button2.TabIndex = 41;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 

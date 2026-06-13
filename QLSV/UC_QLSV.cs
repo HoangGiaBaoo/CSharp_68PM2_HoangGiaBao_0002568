@@ -83,6 +83,18 @@ namespace QLSV
             cbo_lop.ValueMember = "malop";
         }
 
+        private void ClearForm()
+        {
+            txt_maID.Clear();
+            txt_hoTen.Clear();
+            ngaySinh.Value = DateTime.Now;
+            cbo_gioiTinh.SelectedIndex = -1;
+            cbo_lop.SelectedIndex = -1;
+
+            _selectedMaSV = "";
+            txt_hoTen.Focus();
+        }
+
         private void dgv_DSSV_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -90,7 +102,7 @@ namespace QLSV
 
         private void dgv_DSSV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == 0) {
+            if (e.RowIndex < 0) {
                 return;
             }
             var row = dgv_DSSV.Rows[e.RowIndex];
@@ -110,6 +122,45 @@ namespace QLSV
 
             if (row.Cells["ngaysinh"].Value is DateTime dt)
                 ngaySinh.Value = dt;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_selectedMaSV))
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần sửa!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var sv = db.tbl_sinhviens.FirstOrDefault(x => x.id == _selectedMaSV);
+            if (sv == null) { MessageBox.Show("Không tìm thấy sinh viên!"); return; }
+
+            sv.hoten = txt_hoTen.Text.Trim();
+            sv.ngaysinh = ngaySinh.Value.Date;
+            sv.gioitinh = cbo_gioiTinh.Text;
+
+            string malopMoi = cbo_lop.SelectedValue?.ToString()?.Trim();
+            sv.tbl_lophoc = db.tbl_lophocs.FirstOrDefault(l => l.malop == malopMoi);
+
+            try
+            {
+                db.SubmitChanges();
+                MessageBox.Show("Cập nhật thành công!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                ClearForm();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi khi sửa:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ClearForm();
         }
     }
 }
