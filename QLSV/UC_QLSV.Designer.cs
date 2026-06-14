@@ -40,7 +40,6 @@
             this.btn_trangTruoc = new System.Windows.Forms.Button();
             this.btn_trangDau = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_xemDanhSach = new System.Windows.Forms.Button();
             this.btn_lamMoi = new System.Windows.Forms.Button();
             this.lb_thongTin = new System.Windows.Forms.Label();
             this.btn_sua = new System.Windows.Forms.Button();
@@ -185,19 +184,7 @@
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = false;
             this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
-            // 
-            // btn_xemDanhSach
-            // 
-            this.btn_xemDanhSach.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_xemDanhSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xemDanhSach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_xemDanhSach.Location = new System.Drawing.Point(20, 684);
-            this.btn_xemDanhSach.Name = "btn_xemDanhSach";
-            this.btn_xemDanhSach.Size = new System.Drawing.Size(374, 57);
-            this.btn_xemDanhSach.TabIndex = 44;
-            this.btn_xemDanhSach.Text = "Xem danh sách sinh viên";
-            this.btn_xemDanhSach.UseVisualStyleBackColor = false;
-            // 
+            //
             // btn_lamMoi
             // 
             this.btn_lamMoi.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -370,7 +357,6 @@
             this.Controls.Add(this.btn_trangTruoc);
             this.Controls.Add(this.btn_trangDau);
             this.Controls.Add(this.btn_xoa);
-            this.Controls.Add(this.btn_xemDanhSach);
             this.Controls.Add(this.btn_lamMoi);
             this.Controls.Add(this.lb_thongTin);
             this.Controls.Add(this.btn_sua);
@@ -401,7 +387,6 @@
         private System.Windows.Forms.Button btn_trangTruoc;
         private System.Windows.Forms.Button btn_trangDau;
         private System.Windows.Forms.Button btn_xoa;
-        private System.Windows.Forms.Button btn_xemDanhSach;
         private System.Windows.Forms.Button btn_lamMoi;
         private System.Windows.Forms.Label lb_thongTin;
         private System.Windows.Forms.Button btn_sua;

@@ -192,6 +192,7 @@
             this.btn_xemDanhSach.TabIndex = 25;
             this.btn_xemDanhSach.Text = "Xem danh sách sinh viên";
             this.btn_xemDanhSach.UseVisualStyleBackColor = false;
+            this.btn_xemDanhSach.Click += new System.EventHandler(this.btn_xemDanhSach_Click);
             // 
             // btn_lamMoi
             // 

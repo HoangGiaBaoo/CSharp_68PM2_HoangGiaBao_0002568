@@ -226,5 +226,21 @@ namespace QLSV
         {
             LoadLopHocTheoTu(txt_timKiem.Text);
         }
+
+        private void btn_xemDanhSach_Click(object sender, EventArgs e)
+        {
+            if (_selectedId == 0)
+            {
+                MessageBox.Show("Vui lòng chọn lớp!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string malop = txt_maLop.Text.Trim();
+            string tenLop = txt_tenLop.Text.Trim();
+
+            frm_DSSV_TheoLop frm = new frm_DSSV_TheoLop(malop, tenLop);
+            frm.ShowDialog();
+        }
     }
 }
