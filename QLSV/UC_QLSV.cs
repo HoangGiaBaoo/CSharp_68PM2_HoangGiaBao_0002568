@@ -15,6 +15,9 @@ namespace QLSV
         databaseDataContext db = new databaseDataContext("Data Source=DESKTOP-RDPV4HN\\GBAO;Initial Catalog=quanlysv;User ID=sa;Password=Giabao2005@;TrustServerCertificate=True");
         string _selectedMaSV;
         List<tbl_sinhvien> _allData;
+        int _currentPage = 1;
+        int _pageSize = 3;
+        int _totalPages = 1;
         public UC_QLSV()
         {
             InitializeComponent();
@@ -69,7 +72,13 @@ namespace QLSV
 
         private void ApplyPaging()
         {
+            _totalPages = Math.Max(1, (int)Math.Ceiling(_allData.Count / (double)_pageSize));
+            if (_currentPage < 1) _currentPage = 1;
+            if (_currentPage > _totalPages) _currentPage = _totalPages;
+
             dgv_DSSV.DataSource = _allData
+                .Skip((_currentPage - 1) * _pageSize)
+                .Take(_pageSize)
                 .Select(sv => new
                 {
                     sv.id,
@@ -79,6 +88,23 @@ namespace QLSV
                     sv.malop
                 })
                 .ToList();
+
+            lb_trang.Text = _currentPage + "/" + _totalPages;
+            lb_soBanGhi.Text = _allData.Count + " bản ghi";
+        }
+
+        private void LoadSinhVienTheoTu(string tuKhoa)
+        {
+            string tk = tuKhoa.Trim();
+            _allData = db.tbl_sinhviens
+                          .Where(sv =>
+                              sv.id.Contains(tk) ||
+                              sv.hoten.Contains(tk) ||
+                              sv.malop.Contains(tk))
+                          .OrderBy(sv => sv.id)
+                          .ToList();
+            _currentPage = 1;
+            ApplyPaging();
         }
         public void LoadDSLH4CBX()
         {
@@ -192,6 +218,35 @@ namespace QLSV
         private void btn_lamMoi_Click(object sender, EventArgs e)
         {
             ClearForm();
+        }
+
+        private void btn_trangDau_Click(object sender, EventArgs e)
+        {
+            _currentPage = 1;
+            ApplyPaging();
+        }
+
+        private void btn_trangTruoc_Click(object sender, EventArgs e)
+        {
+            _currentPage--;
+            ApplyPaging();
+        }
+
+        private void btn_trangSau_Click(object sender, EventArgs e)
+        {
+            _currentPage++;
+            ApplyPaging();
+        }
+
+        private void btn_trangCuoi_Click(object sender, EventArgs e)
+        {
+            _currentPage = _totalPages;
+            ApplyPaging();
+        }
+
+        private void btn_timKiem_Click(object sender, EventArgs e)
+        {
+            LoadSinhVienTheoTu(txt_timKiem.Text);
         }
     }
 }

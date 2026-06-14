@@ -97,6 +97,7 @@
             this.btn_timKiem.TabIndex = 47;
             this.btn_timKiem.Text = "Tìm kiếm";
             this.btn_timKiem.UseVisualStyleBackColor = false;
+            this.btn_timKiem.Click += new System.EventHandler(this.btn_timKiem_Click);
             // 
             // txt_timKiem
             // 
@@ -140,6 +141,7 @@
             this.btn_trangCuoi.TabIndex = 52;
             this.btn_trangCuoi.Text = ">>";
             this.btn_trangCuoi.UseVisualStyleBackColor = true;
+            this.btn_trangCuoi.Click += new System.EventHandler(this.btn_trangCuoi_Click);
             // 
             // btn_trangSau
             // 
@@ -149,6 +151,7 @@
             this.btn_trangSau.TabIndex = 51;
             this.btn_trangSau.Text = ">";
             this.btn_trangSau.UseVisualStyleBackColor = true;
+            this.btn_trangSau.Click += new System.EventHandler(this.btn_trangSau_Click);
             // 
             // btn_trangTruoc
             // 
@@ -158,6 +161,7 @@
             this.btn_trangTruoc.TabIndex = 50;
             this.btn_trangTruoc.Text = "<";
             this.btn_trangTruoc.UseVisualStyleBackColor = true;
+            this.btn_trangTruoc.Click += new System.EventHandler(this.btn_trangTruoc_Click);
             // 
             // btn_trangDau
             // 
@@ -167,6 +171,7 @@
             this.btn_trangDau.TabIndex = 49;
             this.btn_trangDau.Text = "<<";
             this.btn_trangDau.UseVisualStyleBackColor = true;
+            this.btn_trangDau.Click += new System.EventHandler(this.btn_trangDau_Click);
             // 
             // btn_xoa
             // 
