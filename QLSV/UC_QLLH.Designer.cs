@@ -37,10 +37,6 @@
             this.btn_trangTruoc = new System.Windows.Forms.Button();
             this.btn_trangDau = new System.Windows.Forms.Button();
             this.dgv_DSLH = new System.Windows.Forms.DataGridView();
-            this.MaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Malop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tenlop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_timKiem = new System.Windows.Forms.Button();
             this.txt_timKiem = new System.Windows.Forms.TextBox();
             this.lb_timKiem = new System.Windows.Forms.Label();
@@ -107,6 +103,7 @@
             this.btn_trangCuoi.TabIndex = 33;
             this.btn_trangCuoi.Text = ">>";
             this.btn_trangCuoi.UseVisualStyleBackColor = true;
+            this.btn_trangCuoi.Click += new System.EventHandler(this.btn_trangCuoi_Click);
             // 
             // btn_trangSau
             // 
@@ -116,6 +113,7 @@
             this.btn_trangSau.TabIndex = 32;
             this.btn_trangSau.Text = ">";
             this.btn_trangSau.UseVisualStyleBackColor = true;
+            this.btn_trangSau.Click += new System.EventHandler(this.btn_trangSau_Click);
             // 
             // btn_trangTruoc
             // 
@@ -125,6 +123,7 @@
             this.btn_trangTruoc.TabIndex = 31;
             this.btn_trangTruoc.Text = "<";
             this.btn_trangTruoc.UseVisualStyleBackColor = true;
+            this.btn_trangTruoc.Click += new System.EventHandler(this.btn_trangTruoc_Click);
             // 
             // btn_trangDau
             // 
@@ -134,52 +133,25 @@
             this.btn_trangDau.TabIndex = 30;
             this.btn_trangDau.Text = "<<";
             this.btn_trangDau.UseVisualStyleBackColor = true;
+            this.btn_trangDau.Click += new System.EventHandler(this.btn_trangDau_Click);
             // 
             // dgv_DSLH
             // 
+            this.dgv_DSLH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DSLH.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_DSLH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DSLH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaID,
-            this.Malop,
-            this.Tenlop,
-            this.Ghichu});
             this.dgv_DSLH.Location = new System.Drawing.Point(423, 112);
             this.dgv_DSLH.Name = "dgv_DSLH";
+            this.dgv_DSLH.AllowUserToAddRows = false;
+            this.dgv_DSLH.ReadOnly = true;
+            this.dgv_DSLH.RowHeadersVisible = false;
+            this.dgv_DSLH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSLH.RowHeadersWidth = 62;
             this.dgv_DSLH.RowTemplate.Height = 28;
             this.dgv_DSLH.Size = new System.Drawing.Size(747, 542);
             this.dgv_DSLH.TabIndex = 29;
-            // 
-            // MaID
-            // 
-            this.MaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaID.HeaderText = "Mã ID";
-            this.MaID.MinimumWidth = 8;
-            this.MaID.Name = "MaID";
-            this.MaID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Malop
-            // 
-            this.Malop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Malop.HeaderText = "Mã lớp";
-            this.Malop.MinimumWidth = 8;
-            this.Malop.Name = "Malop";
-            // 
-            // Tenlop
-            // 
-            this.Tenlop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Tenlop.HeaderText = "Tên lớp";
-            this.Tenlop.MinimumWidth = 8;
-            this.Tenlop.Name = "Tenlop";
-            // 
-            // Ghichu
-            // 
-            this.Ghichu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ghichu.HeaderText = "Ghi chú";
-            this.Ghichu.MinimumWidth = 8;
-            this.Ghichu.Name = "Ghichu";
-            // 
+            this.dgv_DSLH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSLH_CellClick);
+            //
             // btn_timKiem
             // 
             this.btn_timKiem.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -191,6 +163,7 @@
             this.btn_timKiem.TabIndex = 28;
             this.btn_timKiem.Text = "Tìm kiếm";
             this.btn_timKiem.UseVisualStyleBackColor = false;
+            this.btn_timKiem.Click += new System.EventHandler(this.btn_timKiem_Click);
             // 
             // txt_timKiem
             // 
@@ -231,6 +204,7 @@
             this.btn_lamMoi.TabIndex = 24;
             this.btn_lamMoi.Text = "Làm mới";
             this.btn_lamMoi.UseVisualStyleBackColor = false;
+            this.btn_lamMoi.Click += new System.EventHandler(this.btn_lamMoi_Click);
             // 
             // lb_thongTin
             // 
@@ -252,6 +226,7 @@
             this.btn_xoa.TabIndex = 23;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = false;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_sua
             // 
@@ -264,6 +239,7 @@
             this.btn_sua.TabIndex = 22;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = false;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_them
             // 
@@ -277,6 +253,7 @@
             this.btn_them.TabIndex = 21;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = false;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // panel1
             // 
@@ -384,6 +361,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "UC_QLLH";
             this.Size = new System.Drawing.Size(1202, 797);
+            this.Load += new System.EventHandler(this.UC_QLLH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLH)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -403,10 +381,6 @@
         private System.Windows.Forms.Button btn_trangTruoc;
         private System.Windows.Forms.Button btn_trangDau;
         private System.Windows.Forms.DataGridView dgv_DSLH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Malop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tenlop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
         private System.Windows.Forms.Button btn_timKiem;
         private System.Windows.Forms.TextBox txt_timKiem;
         private System.Windows.Forms.Label lb_timKiem;
