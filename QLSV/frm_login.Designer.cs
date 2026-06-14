@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_tieuDe = new System.Windows.Forms.Label();
             this.lb_email = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_password = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.btn_dangnhap = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_tieuDe
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(173, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(460, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hệ Thống Quản Lý Sinh Viên";
+            this.lb_tieuDe.AutoSize = true;
+            this.lb_tieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tieuDe.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lb_tieuDe.Location = new System.Drawing.Point(173, 77);
+            this.lb_tieuDe.Name = "lb_tieuDe";
+            this.lb_tieuDe.Size = new System.Drawing.Size(460, 37);
+            this.lb_tieuDe.TabIndex = 0;
+            this.lb_tieuDe.Text = "Hệ Thống Quản Lý Sinh Viên";
             // 
             // lb_email
             // 
@@ -57,15 +57,15 @@
             this.lb_email.TabIndex = 1;
             this.lb_email.Text = "Email:";
             // 
-            // label2
+            // lb_password
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(196, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Password:";
+            this.lb_password.AutoSize = true;
+            this.lb_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_password.Location = new System.Drawing.Point(196, 191);
+            this.lb_password.Name = "lb_password";
+            this.lb_password.Size = new System.Drawing.Size(91, 20);
+            this.lb_password.TabIndex = 2;
+            this.lb_password.Text = "Password:";
             // 
             // txt_email
             // 
@@ -100,9 +100,9 @@
             this.Controls.Add(this.btn_dangnhap);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lb_password);
             this.Controls.Add(this.lb_email);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_tieuDe);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -112,9 +112,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_tieuDe;
         private System.Windows.Forms.Label lb_email;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_password;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Button btn_dangnhap;

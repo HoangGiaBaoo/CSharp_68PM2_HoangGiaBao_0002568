@@ -14,29 +14,10 @@ namespace QLSV
     {
         databaseDataContext db = new databaseDataContext("Data Source=DESKTOP-RDPV4HN\\GBAO;Initial Catalog=quanlysv;User ID=sa;Password=Giabao2005@;TrustServerCertificate=True");
         string _selectedMaSV;
+        List<tbl_sinhvien> _allData;
         public UC_QLSV()
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void UC_QLSV_Load(object sender, EventArgs e)
@@ -45,7 +26,7 @@ namespace QLSV
             LoadDSLH4CBX();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_them_Click(object sender, EventArgs e)
         {
             string mSSV = txt_maID.Text;
             string hoTen = txt_hoTen.Text;
@@ -72,8 +53,32 @@ namespace QLSV
 
         public void LoadData()
         {
-            List<tbl_sinhvien> dSSV = db.tbl_sinhviens.ToList();
-            dgv_DSSV.DataSource = dSSV;
+            try
+            {
+                _allData = db.tbl_sinhviens
+                             .OrderBy(sv => sv.id)
+                             .ToList();
+                ApplyPaging();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ApplyPaging()
+        {
+            dgv_DSSV.DataSource = _allData
+                .Select(sv => new
+                {
+                    sv.id,
+                    sv.hoten,
+                    sv.gioitinh,
+                    sv.ngaysinh,
+                    sv.malop
+                })
+                .ToList();
         }
         public void LoadDSLH4CBX()
         {
@@ -93,11 +98,6 @@ namespace QLSV
 
             _selectedMaSV = "";
             txt_hoTen.Focus();
-        }
-
-        private void dgv_DSSV_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void dgv_DSSV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -124,7 +124,7 @@ namespace QLSV
                 ngaySinh.Value = dt;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_sua_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_selectedMaSV))
             {
@@ -139,9 +139,7 @@ namespace QLSV
             sv.hoten = txt_hoTen.Text.Trim();
             sv.ngaysinh = ngaySinh.Value.Date;
             sv.gioitinh = cbo_gioiTinh.Text;
-
-            string malopMoi = cbo_lop.SelectedValue?.ToString()?.Trim();
-            sv.tbl_lophoc = db.tbl_lophocs.FirstOrDefault(l => l.malop == malopMoi);
+            sv.malop = cbo_lop.SelectedValue?.ToString()?.Trim();
 
             try
             {
@@ -158,7 +156,40 @@ namespace QLSV
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_selectedMaSV))
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần xóa!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show(
+                "Bạn có chắc muốn xóa sinh viên '" + txt_hoTen.Text + "'?",
+                "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes) return;
+
+            var sv = db.tbl_sinhviens.FirstOrDefault(x => x.id == _selectedMaSV);
+            if (sv == null) { MessageBox.Show("Không tìm thấy sinh viên!"); return; }
+
+            try
+            {
+                db.tbl_sinhviens.DeleteOnSubmit(sv);
+                db.SubmitChanges();
+                MessageBox.Show("Xóa thành công!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_lamMoi_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
